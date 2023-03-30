@@ -503,8 +503,3 @@ detectBankCnt:
     jr        .nextSramBank
 ; End of function detectBankCnt
 
-
-
-
-SECTION "StrData", ROM0[$2848]
-strSramWriteTst:    db "Mushroom/Kingpin",0
