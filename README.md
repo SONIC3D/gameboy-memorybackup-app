@@ -10,3 +10,4 @@ The purpose of this project is to create a usable application for my another pro
 * People behind the Hex Rays IDA disassembler.
 * The [RGBDS GameBoy development toolchains](https://rgbds.gbdev.io/).
 * The makefile of this project is based on the project [gb-boilerplate](https://github.com/ISSOtm/gb-boilerplate)
+* The hardware.inc file of this project is grabbed from the project gameboy [hardware.inc](https://github.com/gbdev/hardware.inc).
