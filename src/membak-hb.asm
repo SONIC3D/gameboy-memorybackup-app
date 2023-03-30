@@ -713,6 +713,8 @@ mainEntry:
 
 INCLUDE "vblank_routines.inc"
 
+INCLUDE "module_options.inc"
+
 enterSvcMode:
 rdSF040_0x7F000:
 rdSF040_0x7F800:
@@ -720,3 +722,7 @@ rdSF040_0x7FF00:
 verifyChksum:
 creditsFmtFlash:
 displayMainMenu:
+
+strPrintf:
+playSfxOK:
+wrSF040_0x7FF00:

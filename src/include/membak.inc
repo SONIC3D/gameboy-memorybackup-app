@@ -8,6 +8,11 @@ DEF IOPort_0x6000   EQU $6000
 DEF byte_4000       EQU $4000
 DEF A000_CartSramSt EQU $A000
 
+
+DEF byte_FE00       EQU $FE00
+DEF byte_FE01       EQU $FE01
+DEF byte_FE02       EQU $FE02
+
 DEF FF00_P1_Joypad  EQU $FF00
 DEF FF0F_IntrptFlag EQU $FF0F       ; FF0F - IF - Interrupt Flag (R/W)
                                     ;   Bit 0: V-Blank  Interrupt Request (INT 40h)  (1=Request)
