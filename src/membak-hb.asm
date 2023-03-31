@@ -715,13 +715,14 @@ INCLUDE "vblank_routines.inc"
 INCLUDE "module_servicemode.inc"
 INCLUDE "module_saveload_ram_fat.inc"
 INCLUDE "module_filesys.inc"
+INCLUDE "module_sfx.inc"
+INCLUDE "tilemap_capacity_bar.inc"
 
 INCLUDE "module_options.inc"
 
 displayMainMenu:
 
 strPrintf:
-playSfxOK:
 
 SF040_ReadId:
 SF040_Cp2Sector:

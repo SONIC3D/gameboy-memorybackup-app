@@ -24,10 +24,17 @@ DEF FF0F_IntrptFlag EQU $FF0F       ; FF0F - IF - Interrupt Flag (R/W)
                                     ;   Bit 3: Serial   Interrupt Request (INT 58h)  (1=Request)
                                     ;   Bit 4: Joypad   Interrupt Request (INT 60h)  (1=Request)
 
+DEF byte_FF10       EQU $FF10       ; FF10 - NR10 - Channel 1 Sweep register (R/W)
+DEF byte_FF11       EQU $FF11       ; FF11 - NR11 - Channel 1 Sound length/Wave pattern duty (R/W)
+DEF byte_FF12       EQU $FF12       ; FF12 - NR12 - Channel 1 Volume Envelope (R/W)
+DEF byte_FF13       EQU $FF13       ; FF13 - NR13 - Channel 1 Frequency lo (Write Only)
 DEF byte_FF14       EQU $FF14       ; FF14 - NR14 - Channel 1 Frequency hi (R/W)
 DEF byte_FF19       EQU $FF19       ; FF19 - NR24 - Channel 2 Frequency hi data (R/W)
 DEF byte_FF1E       EQU $FF1E       ; FF1E - NR34 - Channel 3 Frequency's higher data (R/W)
 DEF byte_FF23       EQU $FF23       ; FF23 - NR44 - Channel 4 Counter/consecutive; Inital (R/W)
+DEF byte_FF24       EQU $FF24       ; FF24 - NR50 - Channel control / ON-OFF / Volume (R/W)
+DEF byte_FF25       EQU $FF25       ; FF25 - NR51 - Selection of Sound output terminal (R/W)
+DEF byte_FF26       EQU $FF26       ; FF26 - NR52 - Sound on/off
 
 DEF byte_FF40       EQU $FF40       ; FF40 - LCDC - LCD Control (R/W)
                                     ;   Bit 7 - LCD Display Enable              (0=Off, 1=On)
