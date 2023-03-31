@@ -162,12 +162,270 @@ displayMainMenu:
 ; End of function displayMainMenu
 
 
+; =============== S U B R O U T I N E =======================================
+
+; Referenced as function pointer by code at 0xB4B.
+; 文字界面版的主菜单的按键响应逻辑函数
+
+keyMainMenuTxt:
+; FUNCTION CHUNK AT 0D18 SIZE 0000001B BYTES
+
+    ld      a, [byte_C03F]          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    ld      [byte_FE00], a          ; SpriteAttr[0].PosY
+    ld      a, [byte_C03E]          ; 菜单光标的X坐标(在BgMap中的列偏移)
+                                    ; 0x79: 对应图标主菜单的最右侧一列的列偏移
+    ld      [byte_FE01], a          ; SpriteAttr[0].PosX
+    ld      a, $10
+    ld      [byte_FE02], a          ; SpriteAttr[0].Tile/Pattern_Number
+    call    joypadRead              ; 读取按键
+                                    ; 返回值：
+                                    ;   (以下返回值Bit7/6/5/4/3/2/1/0对应下/上/左/右/Start/Select/B/A)
+                                    ;   a: 本周期按下了的按键(这些键的bit被置为1)
+                                    ;   b: 上周期没有按下，而本周期按下了的按键(这些键的bit被置为1)
+    ld      a, [byte_C001]          ; 上周期没有按下，而本周期按下了的按键(这些键的bit被置为1)
+                                    ; Bit7/6/5/4/3/2/1/0对应下/上/左/右/Start/Select/B/A
+    bit     7, a
+    jr      z, .notKeyDown_DirD     ; 如果[$C001].bit7是0(本周期没有按"下"键)，就跳
+
+.KeyDown_DirDown:
+    call    playSfxOK
+    ld      a, [byte_C03F]          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    add     a, 8
+    cp      $61
+    jr      c, .cursorToTop
+    ld      a, $38
+
+.cursorToTop:
+    ld      [byte_C03F], a          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    ret
+; ---------------------------------------------------------------------------
+
+.notKeyDown_DirD:
+    bit     6, a
+    jr      z, .notKeyDown_DirU     ; 如果[$C001].bit6是0(本周期没有按"上"键)，就跳
+
+.KeyDown_DirUp:
+    call    playSfxOK
+    ld      a, [byte_C03F]          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    sub     8
+    cp      $38
+    jr      nc, .cursorToBottom
+    ld      a, $60
+
+.cursorToBottom:
+    ld      [byte_C03F], a          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    ret
+; ---------------------------------------------------------------------------
+
+.notKeyDown_DirU:
+    bit     0, a
+    ret     z                       ; 如果[$C001].bit0是0(本周期没有按"A"键)，就直接退出函数
+
+.KeyDown_A:
+    call    playSfxOK
+    ld      a, [byte_C03F]          ; 菜单光标的Y坐标(在BgMap中的行偏移)
+                                    ; 文字菜单中，当前光标选择的菜单项在BgMap中的行偏移
+                                    ; 0x28  ------------------------------------>    对应图标主菜单的第1行图标
+                                    ; 0x38  对应主菜单1 Backup
+                                    ; 0x40  对应主菜单2 Restore
+                                    ; 0x48  对应主菜单3 Delete  或Yes/No对话框的Yes
+                                    ; 0x50  对应主菜单4 Option  或Yes/No对话框的No   或对应图标主菜单的第2行图标
+                                    ; 0x58  对应主菜单5 Delete Game Save
+                                    ; 0x60  对应主菜单6 Reset
+    cp      $38    ; '8'
+    jp      z, mainMenuItem_1
+
+.notMenuItm_1:
+    cp      $40    ; '@'
+    jp      z, mainMenuItem_2
+
+.notMenuItm_2:
+    cp      $48    ; 'H'
+    jp      z, mainMenuItem_3
+
+.notMenuItm_3:
+    cp      $50    ; 'P'
+    jp      z, mainMenuItem_4
+
+.notMenuItm_4:
+    cp      $58    ; 'X'
+    jp      z, mainMenuItem_5
+
+.notMenuItm_5:
+    jp      mainMenuItem_6
+; ---------------------------------------------------------------------------
+
+mainMenuItem_1:
+    ld      a, [byte_C038]          ; 存放的是当前插的游戏卡带，最后可用的SRAM的Bank编号数量(最后一个可用Bank的序号+1)
+    or      a
+    jr      z, .backupError         ; 游戏卡带没有SRAM
+
+.hasOnCartSRAM_1:                   ; 0xC763是缓存在内存的编目数据中，用来表示当前备份存档总计个数，长度1个字节。
+    ld      a, [byte_C763]
+    cp      $63    ; 'c'
+    jr      nc, .backupError        ; 备份存档数已经>=99，就跳错误
+
+.displayBakUI:                      ; 备份存档功能的界面，输入存档名称等
+    call    dispBackupUI
+    ret
+; ---------------------------------------------------------------------------
+
+.backupError:
+    call    playSfxError
+    ret
+; ---------------------------------------------------------------------------
+
+mainMenuItem_2:
+    ld      a, [byte_C763]          ; 0xC763是缓存在内存的编目数据中，用来表示当前备份存档总计个数，长度1个字节。
+    or      a
+    jr      z, .restoreError        ; 没有任何备份存档
+
+.bakFileExist_1:                    ; 存放的是当前插的游戏卡带，最后可用的SRAM的Bank编号数量(最后一个可用Bank的序号+1)
+    ld      a, [byte_C038]
+    or      a
+    jr      z, .restoreError        ; 游戏卡带没有SRAM
+
+.dispRestoreUI:
+    ld      a, 1
+    ld      [byte_C02A], a          ; 该变量为0，表示主菜单中选了Delete
+                                    ; 该变量为1，表示主菜单中选了Restore
+    call    dispRestorDelUI         ; Display Restore/Delete UI
+                                    ; [0xC02A] = 1: MainMenu -> Restore
+                                    ; [0xC02A] = 0: MainMenu -> Delete
+    ret
+; ---------------------------------------------------------------------------
+
+.restoreError:
+    call    playSfxError
+    ret
+; ---------------------------------------------------------------------------
+
+mainMenuItem_3:
+    ld      a, [byte_C763]          ; 0xC763是缓存在内存的编目数据中，用来表示当前备份存档总计个数，长度1个字节。
+    or      a
+    jr      z, .noBackupFile_2
+
+.bakFileExist_2:
+    xor     a
+    ld      [byte_C02A], a          ; 该变量为0，表示主菜单中选了Delete
+                                    ; 该变量为1，表示主菜单中选了Restore
+    call    dispRestorDelUI         ; Display Restore/Delete UI
+                                    ; [0xC02A] = 1: MainMenu -> Restore
+                                    ; [0xC02A] = 0: MainMenu -> Delete
+    ret
+; ---------------------------------------------------------------------------
+
+.noBackupFile_2:
+    call    playSfxError
+    ret
+; ---------------------------------------------------------------------------
+
+mainMenuItem_4:
+    call    dispOptionUI            ; Display Option Menu
+    ret
+; End of function keyMainMenuTxt
+
+
+
+
+
+
+; TODO: insert dispConfirmUI() here
+
+
+
+
+
+
 ; ===========================================================================
 ; ===========================================================================
-SECTION "MainMenu_Part_2", ROM0[$0D33]
+SECTION "MainMenu_Part_2", ROM0[$0D18]
+; ---------------------------------------------------------------------------
+; START OF FUNCTION CHUNK FOR keyMainMenuTxt
+mainMenuItem_5:
+    ld      a, [byte_C038]          ; 存放的是当前插的游戏卡带，最后可用的SRAM的Bank编号数量(最后一个可用Bank的序号+1)
+    or      a
+    jr      z, .noOnCartSRAM_2
+
+.hasOnCartSRAM_2:
+    xor     a
+    ld      [byte_C041], a          ; 该变量为0，表示主菜单中选了GameCart SaveDelete删除游戏卡存档
+                                    ; 该变量为1，主菜单中选了Reset格式化
+                                    ; 该变量为2, 主菜单中选了Delete Backup删除备份文件
+    call    dispConfirmUI           ; Display confirmation UI for    Backup Delete /    GameCart_Save_Delete / FactoryReset.
+    ret
+; ---------------------------------------------------------------------------
+
+.noOnCartSRAM_2:
+    call    playSfxError
+    ret
+; ---------------------------------------------------------------------------
+
+mainMenuItem_6:
+    ld      a, 1
+    ld      [byte_C041], a          ; 该变量为0，表示主菜单中选了GameCart SaveDelete删除游戏卡存档
+                                    ; 该变量为1，主菜单中选了Reset格式化
+                                    ; 该变量为2, 主菜单中选了Delete Backup删除备份文件
+    call    dispConfirmUI           ; Display confirmation UI for    Backup Delete /    GameCart_Save_Delete / FactoryReset.
+    ret
+; END OF FUNCTION CHUNK FOR keyMainMenuTxt
+; ---------------------------------------------------------------------------
+
+; ===========================================================================
+; ===========================================================================
 INCLUDE "menusys/mainmenu_string.inc"
 
+
+
+
+
+
 ; TODO: insert dispBackupUI() here
+
+
+
+
+
 
 ; ===========================================================================
 ; ===========================================================================

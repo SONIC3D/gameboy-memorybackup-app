@@ -728,11 +728,8 @@ INCLUDE "menusys/mainmenu.inc"
 
 INCLUDE "module_options.inc"
 
+dispConfirmUI:
+dispRestorDelUI:
+dispBackupUI:
 
-mainMenuItem_1:
-mainMenuItem_2:
-mainMenuItem_3:
-mainMenuItem_4:
-mainMenuItem_5:
-mainMenuItem_6:
 
