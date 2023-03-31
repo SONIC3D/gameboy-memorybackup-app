@@ -339,22 +339,19 @@ setOptCursorPos:
 
 ; ---------------------------------------------------------------------------
 arrStrOptionItm:
-    db  LOW    (strOptionItm1)      ; db $60,$16 => 0x1660
-    db  HIGH   (strOptionItm1)
-    db  LOW    (strOptionItm2)      ; db $75,$16 => 0x1675
-    db  HIGH   (strOptionItm2)
-    db  LOW    (strOptionItm3)      ; db $8A,$16 => 0x168A
-    db  HIGH   (strOptionItm3)
-    db  LOW    (strOptionItm4)      ; db $9F,$16 => 0x169F
-    db  HIGH   (strOptionItm4)
-    db  LOW    (strOptionItm5)      ; db $B4,$16 => 0x16B4
-    db  HIGH   (strOptionItm5)
+    db  LOW(strOptionItm1), HIGH(strOptionItm1)     ; db $60,$16 => 0x1660
+    db  LOW(strOptionItm2), HIGH(strOptionItm2)     ; db $75,$16 => 0x1675
+    db  LOW(strOptionItm3), HIGH(strOptionItm3)     ; db $8A,$16 => 0x168A
+    db  LOW(strOptionItm4), HIGH(strOptionItm4)     ; db $9F,$16 => 0x169F
+    db  LOW(strOptionItm5), HIGH(strOptionItm5)     ; db $B4,$16 => 0x16B4
+
 optionItemPosY:                     ; Option界面的5行Item在BG Map的Y坐标，用这个Y坐标去显示最左侧的指向光标
     db  $30                         ; 0
     db  $40                         ; 1
     db  $50                         ; 2
     db  $60                         ; 3
     db  $70                         ; 4
+
 strOptionTitle:     db "      Options",0
 strOptionItm1:      db "  1.Icons         %c",0
 strOptionItm2:      db "  2.Inverse       %c",0
