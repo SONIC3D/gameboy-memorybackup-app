@@ -74,3 +74,6 @@ C775_OptVal03:: ds 1        ; Option选项值，是否启用声音，非0时，�
                             ; 初始化为0xFF，即启用声音。
 C776_OptVal04:: ds 1        ; Option选项值，是否强制要求唯一文件名。为0时，表示允许同名文件。
                             ; 初始化为0x0，即允许同名文件。
+
+SECTION "VariablesC862", WRAM0[$C862]
+byte_C862::     ds 1        ; 存放0xAE + [0xC763]..[0xC861]共0xFE个字节的校验和

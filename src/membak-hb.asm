@@ -713,19 +713,15 @@ mainEntry:
 
 INCLUDE "vblank_routines.inc"
 INCLUDE "module_servicemode.inc"
+INCLUDE "module_saveload_ram_fat.inc"
 
 INCLUDE "module_options.inc"
 
-rdSF040_0x7F000:
-rdSF040_0x7F800:
-rdSF040_0x7FF00:
-verifyChksum:
 displayMainMenu:
 
 strPrintf:
 playSfxOK:
-wrSF040_0x7FF00:
 
 SF040_ReadId:
-wrSF040_0x7F000:
-wrSF040_0x7F800:
+SF040_Cp2Sector:
+gotoSF040_Bank:
