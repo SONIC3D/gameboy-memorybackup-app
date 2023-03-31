@@ -728,7 +728,6 @@ INCLUDE "menusys/mainmenu.inc"
 
 INCLUDE "module_options.inc"
 
-dispConfirmUI:
 dispRestorDelUI:
 dispBackupUI:
 

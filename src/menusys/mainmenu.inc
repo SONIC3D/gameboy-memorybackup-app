@@ -366,15 +366,10 @@ mainMenuItem_4:
 ; End of function keyMainMenuTxt
 
 
-
-
-
-
-; TODO: insert dispConfirmUI() here
-
-
-
-
+; ===========================================================================
+; ===========================================================================
+; DONE: Insert Save Del/Reset menu code here
+INCLUDE "menusys/save_del_rst_menu.inc"
 
 
 ; ===========================================================================
