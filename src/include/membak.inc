@@ -14,6 +14,9 @@ DEF byte_FE01       EQU $FE01
 DEF byte_FE02       EQU $FE02
 
 DEF FF00_P1_Joypad  EQU $FF00
+DEF FF05_TimCounter EQU $FF05
+DEF FF06_TimModulo  EQU $FF06
+DEF FF07_TimCtrl    EQU $FF07
 DEF FF0F_IntrptFlag EQU $FF0F       ; FF0F - IF - Interrupt Flag (R/W)
                                     ;   Bit 0: V-Blank  Interrupt Request (INT 40h)  (1=Request)
                                     ;   Bit 1: LCD STAT Interrupt Request (INT 48h)  (1=Request)
