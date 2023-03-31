@@ -714,6 +714,8 @@ mainEntry:
 INCLUDE "vblank_routines.inc"
 INCLUDE "module_servicemode.inc"
 INCLUDE "module_saveload_ram_fat.inc"
+
+; File system and sound fx related
 INCLUDE "module_filesys.inc"
 INCLUDE "module_sfx.inc"
 INCLUDE "tilemap_capacity_bar.inc"
