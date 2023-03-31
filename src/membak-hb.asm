@@ -722,6 +722,7 @@ INCLUDE "tilemap_capacity_bar.inc"
 
 INCLUDE "module_str_printf.inc"
 INCLUDE "module_flashrom_28sf040.inc"
+INCLUDE "module_flashrom_rw.inc"
 
 INCLUDE "module_options.inc"
 
