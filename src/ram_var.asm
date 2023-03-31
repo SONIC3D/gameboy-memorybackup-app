@@ -24,6 +24,11 @@ C010_PrintArgv1::
                 ds 1        ; 在0x691的strPrintf函数中，用来作为第1个格式化符号对应的参数
 
 
+SECTION "VariablesC022", WRAM0[$C022]
+byte_C022::     ds 1        ; 写入这个地址值的低5bit是上次被74HC373锁存的值的低5bit，是作为28SF040的A18..A14的值。
+                            ; 保存在这里，以便之后可以渠道上次对28SF040进行的Bank切换。
+                            ; (28SF040因此被分成2^5 = 32个Bank)
+
 SECTION "VariablesC02B", WRAM0[$C02B]
 byte_C02B::     ds 1        ; 在Restore或Delete界面，按A键时，光标选中的备份文件的顺序号+1
                             ; (不是当前屏幕内的序号，是在所有备份中的顺序号)

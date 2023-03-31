@@ -721,12 +721,10 @@ INCLUDE "module_sfx.inc"
 INCLUDE "tilemap_capacity_bar.inc"
 
 INCLUDE "module_str_printf.inc"
+INCLUDE "module_flashrom_28sf040.inc"
 
 INCLUDE "module_options.inc"
 
 displayMainMenu:
 
 
-SF040_ReadId:
-SF040_Cp2Sector:
-gotoSF040_Bank:

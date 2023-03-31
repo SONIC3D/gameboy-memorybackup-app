@@ -2,10 +2,22 @@
 ;* Gameboy MemoryBackup hardware definitions
 ;*
 
+; 28SF040 cmd address
+DEF unk_440A        EQU $440A
+DEF unk_4418        EQU $4418
+DEF unk_4419        EQU $4419
+DEF unk_441A        EQU $441A
+DEF unk_441B        EQU $441B
+DEF unk_5820        EQU $5820
+DEF unk_5822        EQU $5822
+DEF unk_5823        EQU $5823
+
+; Gameboy I/O
 DEF IOPort_0x0000   EQU $0000
 DEF IOPort_0x2000   EQU $2000
 DEF IOPort_0x6000   EQU $6000
 DEF byte_4000       EQU $4000
+DEF byte_4001       EQU $4001
 DEF A000_CartSramSt EQU $A000
 
 
