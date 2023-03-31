@@ -714,6 +714,7 @@ mainEntry:
 INCLUDE "vblank_routines.inc"
 INCLUDE "module_servicemode.inc"
 INCLUDE "module_saveload_ram_fat.inc"
+INCLUDE "module_filesys.inc"
 
 INCLUDE "module_options.inc"
 
