@@ -16,11 +16,11 @@ strCredits::
                     db "     Code:",$A
                     db "       A.Edge",0
 strDatelCopyRt::    db "  (C)Datel D&D 1999",0
-strYesNoConfirm:
+strYesNoConfirm::
                     db $80,$81,$25,$73,$81,$80,$A
 		            db $83,$84,$85,"      Yes     ",$83,$84,$85,$A
 		            db $86,$87,$88,"      No      ",$86,$87,$88,0
-strWorking:
+strWorking::
                     db $80,$81,"                ",$81,$80, $A
                     db $83,$84,$85,"  Working...  ",$83,$84,$85,$A
                     db $86,$87,$88, "              ", $86,$87,$88,0
