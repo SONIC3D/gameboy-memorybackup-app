@@ -724,8 +724,15 @@ INCLUDE "module_str_printf.inc"
 INCLUDE "module_flashrom_28sf040.inc"
 INCLUDE "module_flashrom_rw.inc"
 
+INCLUDE "menusys/mainmenu.inc"
+
 INCLUDE "module_options.inc"
 
-displayMainMenu:
 
+mainMenuItem_1:
+mainMenuItem_2:
+mainMenuItem_3:
+mainMenuItem_4:
+mainMenuItem_5:
+mainMenuItem_6:
 

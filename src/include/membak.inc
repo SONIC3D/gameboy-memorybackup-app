@@ -21,9 +21,78 @@ DEF byte_4001       EQU $4001
 DEF A000_CartSramSt EQU $A000
 
 
-DEF byte_FE00       EQU $FE00
-DEF byte_FE01       EQU $FE01
-DEF byte_FE02       EQU $FE02
+DEF byte_FE00       EQU $FE00       ; SpriteAttr[0].PosY
+DEF byte_FE01       EQU $FE01       ; SpriteAttr[0].PosX
+DEF byte_FE02       EQU $FE02       ; SpriteAttr[0].Tile/Pattern_Number
+DEF byte_FE03       EQU $FE03       ; SpriteAttr[0].Attributes/Flags:
+                                    ;   Bit7   OBJ-to-BG Priority   (0=OBJ Above BG, 1=OBJ Behind BG color 1-3)
+                                    ;                               (Used for both BG and Window. BG color 0 is always behind OBJ)
+                                    ;   Bit6   Y flip               (0=Normal, 1=Vertically mirrored)
+                                    ;   Bit5   X flip               (0=Normal, 1=Horizontally mirrored)
+                                    ;   Bit4   Palette number  **Non CGB Mode Only**    (0=OBP0, 1=OBP1)
+                                    ;   Bit3   Tile VRAM-Bank  **CGB Mode Only**        (0=Bank 0, 1=Bank 1)
+                                    ;   Bit2-0 Palette number  **CGB Mode Only**        (OBP0-7)
+DEF byte_FE04       EQU $FE04       ; SpriteAttr[1].PosY
+DEF byte_FE05       EQU $FE05       ; SpriteAttr[1].PosX
+DEF byte_FE06       EQU $FE06       ; SpriteAttr[1].Tile/Pattern_Number
+DEF byte_FE07       EQU $FE07       ; SpriteAttr[1].Attributes/Flags
+DEF byte_FE08       EQU $FE08
+DEF byte_FE09       EQU $FE09
+DEF byte_FE0A       EQU $FE0A
+DEF byte_FE0B       EQU $FE0B
+DEF byte_FE0C       EQU $FE0C
+DEF byte_FE0D       EQU $FE0D
+DEF byte_FE0E       EQU $FE0E
+DEF byte_FE0F       EQU $FE0F
+DEF byte_FE10       EQU $FE10
+DEF byte_FE11       EQU $FE11
+DEF byte_FE12       EQU $FE12
+DEF byte_FE13       EQU $FE13
+DEF byte_FE14       EQU $FE14
+DEF byte_FE15       EQU $FE15
+DEF byte_FE16       EQU $FE16
+DEF byte_FE17       EQU $FE17
+DEF byte_FE18       EQU $FE18
+DEF byte_FE19       EQU $FE19
+DEF byte_FE1A       EQU $FE1A
+DEF byte_FE1B       EQU $FE1B
+DEF byte_FE1C       EQU $FE1C
+DEF byte_FE1D       EQU $FE1D
+DEF byte_FE1E       EQU $FE1E
+DEF byte_FE1F       EQU $FE1F
+DEF byte_FE20       EQU $FE20
+DEF byte_FE21       EQU $FE21
+DEF byte_FE22       EQU $FE22
+DEF byte_FE23       EQU $FE23
+DEF byte_FE24       EQU $FE24
+DEF byte_FE25       EQU $FE25
+DEF byte_FE26       EQU $FE26
+DEF byte_FE27       EQU $FE27
+DEF byte_FE28       EQU $FE28
+DEF byte_FE29       EQU $FE29
+DEF byte_FE2A       EQU $FE2A
+DEF byte_FE2B       EQU $FE2B
+DEF byte_FE2C       EQU $FE2C
+DEF byte_FE2D       EQU $FE2D
+DEF byte_FE2E       EQU $FE2E
+DEF byte_FE2F       EQU $FE2F
+DEF byte_FE30       EQU $FE30
+DEF byte_FE31       EQU $FE31
+DEF byte_FE32       EQU $FE32
+DEF byte_FE33       EQU $FE33
+DEF byte_FE34       EQU $FE34
+DEF byte_FE35       EQU $FE35
+DEF byte_FE36       EQU $FE36
+DEF byte_FE37       EQU $FE37
+DEF byte_FE38       EQU $FE38
+DEF byte_FE39       EQU $FE39
+DEF byte_FE3A       EQU $FE3A
+DEF byte_FE3B       EQU $FE3B
+DEF byte_FE3C       EQU $FE3C
+DEF byte_FE3D       EQU $FE3D
+DEF byte_FE3E       EQU $FE3E
+DEF byte_FE3F       EQU $FE3F
+
 
 DEF FF00_P1_Joypad  EQU $FF00
 DEF FF05_TimCounter EQU $FF05

@@ -62,7 +62,9 @@ byte_C02B::     ds 1        ; 在Restore或Delete界面，按A键时，光标选
                             ; (不是当前屏幕内的序号，是在所有备份中的顺序号)
                             ; 这个序号>=1，且<=([0xC763])
 
-SECTION "VariablesC02E", WRAM0[$C02E]
+SECTION "VariablesC02D", WRAM0[$C02D]
+byte_C02D::     ds 1        ; 存放图标形式的MainMenu界面的被光标选中的项目的ID，取值范围0-5。
+                            ; 第1行3个图标从左到右依次是0-2，第2行从左到右依次是3-5。
 byte_C02E::     ds 1        ; 存放Option界面的光标纵坐标，取值范围0-4
 C02F_TmpOptVal1::           ; 存放Option界面用户点Save前，用户所设置的临时值。
                             ; 4个字节分别对应：使用图标菜单、反向色盘、音效开启、不允许重复文件名
