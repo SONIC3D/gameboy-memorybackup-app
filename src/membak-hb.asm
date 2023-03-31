@@ -720,11 +720,12 @@ INCLUDE "module_filesys.inc"
 INCLUDE "module_sfx.inc"
 INCLUDE "tilemap_capacity_bar.inc"
 
+INCLUDE "module_str_printf.inc"
+
 INCLUDE "module_options.inc"
 
 displayMainMenu:
 
-strPrintf:
 
 SF040_ReadId:
 SF040_Cp2Sector:
