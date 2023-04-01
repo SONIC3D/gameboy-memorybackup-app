@@ -332,7 +332,9 @@ drawCapacityBar:
     ld      a, [word_C00C+1]
     ld      h, a
     ld      sp, hl
-    ld      hl, C010_PrintArgv1     ; 在0x691的strPrintf函数中，用来作为第1个格式化符号对应的参数
+    ld      hl, C010_PrintArgv      ; 在0x691的strPrintf函数中，用来作为第1个格式化符号对应的参数
+                                    ; 如果有多个格式化符号，就依次递增地址
+                                    ; 最多有用到3个字节，是在打印序号和备份文件名时的格式化字符串"%d.%s"
     ld      a, [byte_C009]
     ldi     [hl], a
 
