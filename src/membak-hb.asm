@@ -305,3 +305,5 @@ INCLUDE "module_flashrom_rw.inc"
 INCLUDE "menusys/mainmenu.inc"
 
 
+SECTION "Padding ROMX", ROMX[$4000]
+    ds $4000, $FF
