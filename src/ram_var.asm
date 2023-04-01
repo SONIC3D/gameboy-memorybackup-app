@@ -112,8 +112,6 @@ byte_C040::     ds 1        ; 局部变量:
 byte_C041::     ds 1        ; 该变量为0，表示主菜单中选了GameCart SaveDelete删除游戏卡存档
                             ; 该变量为1，主菜单中选了Reset格式化
                             ; 该变量为2, 主菜单中选了Delete Backup删除备份文件
-
-SECTION "VariablesC042", WRAM0[$C042]
 C042_bufFileNam::           ; 共$10字节。用于存放备份功能时，用户输入的文件名字符串，以便用于和卡中已有存档名进行比较。
                 ds 1        ; 0
                 ds 1        ; 1
@@ -137,7 +135,8 @@ SECTION "VariablesC053", WRAM0[$C053]
 byteArr_C053::  ds $10      ; 用来在测试GameCart的SRAM可写性时，备份原有SRAM中数据的临时存储空间
 
 SECTION "VariablesC063", WRAM0[$C063]
-C063_fnameCache::   ds 1    ; [0xC063-0xC762]:
+C063_fnameCache::
+                ds $700     ; [0xC063-0xC762]:
                             ;   每$10个字节一组，存放N组卡带中已经备份数据的文件名，总数量在$C763中。
                             ;   总共$70组，即112组，但是实际好像只用了100组也就是1600字节(0x640字节)
                             ;   用$700只是为了写入28SF040时，对齐256字节的扇区
