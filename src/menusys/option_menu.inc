@@ -1,4 +1,4 @@
-SECTION "Module Options", ROM0[$150B]
+;SECTION "SubMenu Module Options", ROM0[$150B]
 
 ; =============== S U B R O U T I N E =======================================
 

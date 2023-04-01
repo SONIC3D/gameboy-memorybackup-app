@@ -1,3 +1,4 @@
+;SECTION "Module MainMenu String", ROM0[$0D33]
 
 strMainMenuTxt:
     db "  1.Backup",$A

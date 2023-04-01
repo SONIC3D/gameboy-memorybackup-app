@@ -1,3 +1,5 @@
+;SECTION "Module MainMenu", ROM0[$0AE7]
+
 ; =============== S U B R O U T I N E =======================================
 
 

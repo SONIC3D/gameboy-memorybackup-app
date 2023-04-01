@@ -1,3 +1,5 @@
+;SECTION "SubMenu Module Save Backup", ROM0[$0D80]
+
 ; =============== S U B R O U T I N E =======================================
 
 ; 备份存档功能的界面，输入存档名称等

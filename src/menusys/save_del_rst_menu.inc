@@ -1,3 +1,5 @@
+;SECTION "SubMenu Module Save DeleteReset", ROM0[$0C09]
+
 ; =============== S U B R O U T I N E =======================================
 
 ; Display confirmation UI for Backup Delete / GameCart_Save_Delete / FactoryReset.
