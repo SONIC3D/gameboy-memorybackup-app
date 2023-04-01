@@ -52,8 +52,22 @@ GlobalEntry_100:
 ; End of function GlobalEntry_100
 
 ; ---------------------------------------------------------------------------
-    ds $150 - @, 0                  ; Make room for logo and header info
+    ds $134 - @, 0                  ; Make room for logo and header info
 ; ---------------------------------------------------------------------------
+SECTION "Cartridge Header", ROM0[$0134]
+; https://problemkaputt.de/pandocs.htm#thecartridgeheader
+    db "DEMO            "           ; $0134-0143 Game Title
+    db 0,0                          ; $0144-0145 New Licensee Code
+    db 0                            ; $0146 SGB Flag
+    db $1B                          ; $0147 Cartridge Type
+    db 0                            ; $0148 ROM Size
+    db 3                            ; $0149 RAM Size
+    db 1                            ; $014A Destination Code
+    db 1                            ; $014B Old Licensee Code
+    db 0                            ; $014C Mask ROM Version Number
+    db $22                          ; $014D Header Checksum
+    db $F6,$2D                      ; $014E-014F Global Checksum
+;    ds 3                            ; Enable this line if checksum $014D-014F is empty
 
 ; ---------------------------------------------------------------------------
 ; ---------------------------------------------------------------------------

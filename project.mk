@@ -11,21 +11,21 @@ PADVALUE := 0x00
 VERSION := 0
 
 # 4-ASCII letter game ID
-GAMEID := MBHB
+#GAMEID := MBHB
 
 # Game title, up to 11 ASCII chars
-TITLE := MEMBAK_HB
+#TITLE := MEMBAK_HB
 
 # New licensee, 2 ASCII chars
 # Homebrew games FTW!
-LICENSEE := HB
+#LICENSEE := HB
 # Old licensee, please set to 0x33 (required to get SGB compatibility)
-OLDLIC := 0x33
+OLDLIC := 0x01
 
 # MBC type, tells which hardware is in the cart
 # See https://gbdev.io/pandocs/#_0147-cartridge-type or consult any copy of Pan Docs
 # If using no MBC, consider enabling `-t` below
-MBC := 0x03
+MBC := 0x1B
 
 # ROM size is set automatically by RGBFIX
 
