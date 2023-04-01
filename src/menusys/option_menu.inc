@@ -81,7 +81,7 @@ dispOptionUI:
     ld      [byte_C039], a          ; 用来存放0xFFFF(GB的中断启用状态)的值  // FFFF - IE - Interrupt Enable (R/W)
     pop     af
 
-.setNextVBlkFunc:                    ; 0x1567 will be jumped to on next vblank.(By code at 0x264)
+.setNextVBlkFunc:                   ; 0x1567 will be jumped to on next vblank.(By code at 0x264)
     ld      a, $67 ; 'g'
     ld      [byte_C035], a          ; [0xC036,0xC035]会在VInt发生后，在0x0264处被赋值给hl，然后只要hl不是0，就跳转到[hl]，最后再返回到$258等待下一个VInt发生。
     ld      a, $15
@@ -129,7 +129,7 @@ keyOptionUI:
     ld      a, [byte_C001]          ; 上周期没有按下，而本周期按下了的按键(这些键的bit被置为1)
                                     ; Bit7/6/5/4/3/2/1/0对应下/上/左/右/Start/Select/B/A
     bit     1, a
-    jr      z, .notKeyDown_B         ; 如果[$C001].bit1是0(本周期没有按"B"键)，就跳
+    jr      z, .notKeyDown_B        ; 如果[$C001].bit1是0(本周期没有按"B"键)，就跳
 
 .KeyDown_B:
     call    displayMainMenu
@@ -138,9 +138,9 @@ keyOptionUI:
 
 .notKeyDown_B:
     bit     7, a
-    jr      z, .notKeyDown_DirD      ; 如果[$C001].bit7是0(本周期没有按"下"键)，就跳
+    jr      z, .notKeyDown_DirD     ; 如果[$C001].bit7是0(本周期没有按"下"键)，就跳
 
-.KeyDown_DirDown:                    ; 存放Option界面的光标纵坐标，取值范围0-4
+.KeyDown_DirDown:                   ; 存放Option界面的光标纵坐标，取值范围0-4
     ld      a, [byte_C02E]
     inc     a
     cp      5
@@ -153,9 +153,9 @@ keyOptionUI:
 
 .notKeyDown_DirD:
     bit     6, a
-    jr      z, .notKeyDown_DirU      ; 如果[$C001].bit6是0(本周期没有按"上"键)，就跳
+    jr      z, .notKeyDown_DirU     ; 如果[$C001].bit6是0(本周期没有按"上"键)，就跳
 
-.KeyDown_DirUp:                      ; 存放Option界面的光标纵坐标，取值范围0-4
+.KeyDown_DirUp:                     ; 存放Option界面的光标纵坐标，取值范围0-4
     ld      a, [byte_C02E]
     sub     1
     jr      nc, .savOptCursorPos

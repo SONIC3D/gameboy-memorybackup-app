@@ -720,13 +720,13 @@ keyMainMenuIcon:
     bit     4, a
     jr      z, .notKeyDown_DirR
 
-.KeyDown_DirRt:                      ; 菜单光标的X坐标(在BgMap中的列偏移)
+.KeyDown_DirRt:                     ; 菜单光标的X坐标(在BgMap中的列偏移)
     ld      a, [byte_C03E]          ; 0x79: 对应图标主菜单的最右侧一列的列偏移
     add     a, $30
     cp      $79
     ret     nc                      ; 如果a>=0x79，就返回
 
-.mvCursor2NxtCol:                    ; 菜单光标的X坐标(在BgMap中的列偏移)
+.mvCursor2NxtCol:                   ; 菜单光标的X坐标(在BgMap中的列偏移)
     ld      [byte_C03E], a          ; 0x79: 对应图标主菜单的最右侧一列的列偏移
 
 .setSelIconId_3:                    ; 存放图标形式的MainMenu界面的被光标选中的项目的ID，取值范围0-5。
@@ -741,7 +741,7 @@ keyMainMenuIcon:
     bit     5, a
     jr      z, .notKeyDown_DirL
 
-.KeyDown_DirLt:                      ; 菜单光标的X坐标(在BgMap中的列偏移)
+.KeyDown_DirLt:                     ; 菜单光标的X坐标(在BgMap中的列偏移)
     ld      a, [byte_C03E]          ; 0x79: 对应图标主菜单的最右侧一列的列偏移
     sub     $30
     cp      $71

@@ -85,7 +85,7 @@ detectBankCnt:
 .nextSramBank:
     ld      a, b
     cp      $10
-    jr      nc, .endOfDetect      ; Jump if (b >= $10)
+    jr      nc, .endOfDetect        ; Jump if (b >= $10)
     ld      a, b
     ld      [byte_4000], a          ; [0x2000] = $C0, [0x4000] = b;    //    b=1,2,3,4,5,6,7,8,9,A,B,C,D,E,F
     call    tst_0xA000_RW           ; Write [0xA000]=([0xA000] xor 0xFF) and re-read to test if it is writable.

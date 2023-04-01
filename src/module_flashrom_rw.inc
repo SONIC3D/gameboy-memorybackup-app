@@ -7,7 +7,7 @@ dispBkupWorking:
     cp      $64	; 'd'
     ret     nc			            ; Return if [0xC763]>=100
 
-.fileCntNotFull:					    ; 循环halt等待中断发生，直到VBlank发生1次后，本函数返回。
+.fileCntNotFull:					; 循环halt等待中断发生，直到VBlank发生1次后，本函数返回。
     call    waitVBlankOccur
 
 .clrBgMap:					        ; Fill [0xFE00-0xFE9F] OAM address range with	data 0x00.
