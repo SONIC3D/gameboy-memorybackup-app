@@ -55,20 +55,10 @@ GlobalEntry_100:
     ds $150 - @, 0                  ; Make room for logo and header info
 ; ---------------------------------------------------------------------------
 
-; =============== S U B R O U T I N E =======================================
+; ---------------------------------------------------------------------------
+; ---------------------------------------------------------------------------
+INCLUDE "module_oam_op.inc"
 
-; Fill [0xFE00-0xFE9F] OAM address range with data 0x00.
-clearOAM:
-    ld      hl, $FE00
-.nextByte:
-    xor     a
-    ld      [hl], a
-    inc     l
-    ld      a, l
-    cp      $A0                     ; OAM range is $FE00-$FE9F
-    jr      c,  .nextByte
-    ret
-; End of function clearOAM
 
 ; =============== S U B R O U T I N E =======================================
 
