@@ -81,11 +81,14 @@ byte_C036::     ds 1        ; [0xC036,0xC035]会在VInt发生后，在0x0264处�
 byte_C037::     ds 1        ; 每次VBlank函数发生时，该变量会被设成1
 byte_C038::     ds 1        ; 存放的是当前插的游戏卡带，最后可用的SRAM的Bank编号数量(最后一个可用Bank的序号+1)
 byte_C039::     ds 1        ; 用来存放0xFFFF(GB的中断启用状态)的值  // FFFF - IE - Interrupt    Enable (R/W)
+byte_C03A::     ds 1        ; Backup名称输入界面中，屏幕下方文件名的当前字符位光标，在这行第几个字符上。
+                            ; 注意起始字符是2，因为这行前面有2个空格。
+                            ; 如果输入文件名界面点End时发现光标在2上，则认为文件名不够长，不足以End。
+                            ; 最多可以到18，也就是总共文件名可以16个用户可输入字符(不包含额外的'\0')
 
 SECTION "VariablesC03C", WRAM0[$C03C]
 byte_C03C::     ds 1        ; 备份空间的占用情况，数值实际应该在[0-$40]内，即[0-64]。
-
-SECTION "VariablesC03E", WRAM0[$C03E]
+byte_C03D::     ds 1        ; Backup名称输入界面中，当前选中的字符的在FontTile中的编号
 byte_C03E::     ds 1        ; 菜单光标的X坐标(在BgMap中的列偏移)
                             ; 0x79: 对应图标主菜单的最右侧一列的列偏移
 byte_C03F::     ds 1        ; 菜单光标的Y坐标(在BgMap中的行偏移)
