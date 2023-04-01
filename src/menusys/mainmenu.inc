@@ -417,7 +417,7 @@ INCLUDE "menusys/mainmenu_string.inc"
 
 ; TODO: insert dispBackupUI() here
 INCLUDE "menusys/backup_menu.inc"
-
+INCLUDE "menusys/restore_menu.inc"
 
 
 

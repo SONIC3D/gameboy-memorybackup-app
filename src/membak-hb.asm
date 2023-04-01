@@ -728,6 +728,4 @@ INCLUDE "menusys/mainmenu.inc"
 
 INCLUDE "module_options.inc"
 
-dispRestorDelUI:
-
 
