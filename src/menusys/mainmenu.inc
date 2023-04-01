@@ -907,3 +907,9 @@ aDelete_0:          db "       Delete        ",0
 aOptions:           db "       Options       ",0
 aEraseGameSav_0:    db "   Erase game save   ",0
 aReset_0:           db "        Reset        ",0
+
+
+
+; ===========================================================================
+; ===========================================================================
+INCLUDE "menusys/option_menu.inc"

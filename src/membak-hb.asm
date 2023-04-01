@@ -726,6 +726,4 @@ INCLUDE "module_flashrom_rw.inc"
 
 INCLUDE "menusys/mainmenu.inc"
 
-INCLUDE "module_options.inc"
-
 
