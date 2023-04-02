@@ -1,3 +1,15 @@
+; ---------------------------------------------------------------------------
+; GameBoy MemoryBackup Homebrew Application
+; Version 1.0(2023.Apr.2)
+; Source code project re-implemented by SONIC3D
+;
+; Project URL:
+;   https://github.com/SONIC3D/gameboy-memorybackup-app
+;
+; Target assembler/linker/romfixer:
+;   RGBAsm/RGBLink/RGBFix v0.6.1
+; ---------------------------------------------------------------------------
+
 INCLUDE "include/hardware.inc"
 INCLUDE "include/membak.inc"
 
